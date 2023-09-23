@@ -1,5 +1,5 @@
 NAME := busybox
-BUSYBOX_VERSION := 1.35.0
+BUSYBOX_VERSION := 1.36.1
 BUSYBOX_URL := https://busybox.net/downloads/busybox-$(BUSYBOX_VERSION).tar.bz2
 BUSYBOX_PROGRAMS := busybox
 BUSYBOX_LIBRARIES :=
