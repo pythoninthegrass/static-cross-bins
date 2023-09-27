@@ -1,23 +1,31 @@
-# Despite convention, Ubuntu's "latest" tag points to the latest LTS release.
-FROM ubuntu:latest
+# syntax=docker/dockerfile:1.6
 
-LABEL org.opencontainers.image.authors="llamasoft@rm-rf.email"
-LABEL org.opencontainers.image.url="https://github.com/llamasoft/static-builder"
+FROM ubuntu:22.04
 
-# This is all that's required for the build process.
-# Some packages are already installed but are included for completeness.
-RUN apt-get update \
- && apt-get install -y \
-    gcc g++ \
-    make autoconf automake libtool patch \
-    flex bison \
+LABEL org.opencontainers.image.authors="4097471+pythoninthegrass@users.noreply.github.com"
+LABEL org.opencontainers.image.url="https://github.com/pythoninthegrass/static-cross-bins"
+
+RUN apt -qq update && apt -qq install \
+    --no-install-recommends -y \
+    autoconf \
+    automake \
+    bison \
+    bzip2 \
+    flex \
+    g++ \
+    gcc \
+    gzip \
+    libtool \
+    make \
+    patch \
+    tar \
     wget \
-    tar gzip bzip2 xz-utils
+    xz-utils \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir -p "/build"
+WORKDIR "/build"
 COPY "Makefile" "/build/"
 COPY "include" "/build/include"
 VOLUME "/build"
 
-WORKDIR "/build"
 ENTRYPOINT ["/usr/bin/make", "-w"]
