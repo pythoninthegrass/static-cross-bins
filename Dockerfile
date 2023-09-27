@@ -5,8 +5,7 @@ FROM ubuntu:22.04
 LABEL org.opencontainers.image.authors="4097471+pythoninthegrass@users.noreply.github.com"
 LABEL org.opencontainers.image.url="https://github.com/pythoninthegrass/static-cross-bins"
 
-RUN apt -qq update && apt -qq install \
-    --no-install-recommends -y \
+RUN apt -qq update && apt -qq install -y \
     autoconf \
     automake \
     bison \
