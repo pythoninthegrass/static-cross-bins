@@ -1,5 +1,5 @@
 NAME := dropbear
-DROPBEAR_VERSION := 2022.82
+DROPBEAR_VERSION := 2022.83
 DROPBEAR_URL := https://github.com/mkj/dropbear/archive/refs/tags/DROPBEAR_$(DROPBEAR_VERSION).tar.gz
 DROPBEAR_PROGRAMS := dropbear dbclient dropbearkey dropbearconvert scp
 DROPBEAR_LIBRARIES :=
